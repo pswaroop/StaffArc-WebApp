@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,5 +9,45 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') +
+        l.search + l.hash
+      );
+    </script>
+    
+  </body>
+</html>
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>StaffArc - Professional Staffing Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="%VITE_BASE_URL%/vite.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      This website requires JavaScript to function properly.
+    </noscript>
+    <script type="module" src="%VITE_BASE_URL%/src/main.tsx"></script>
+    <script>
+      (function() {
+        var l = window.location;
+        if (l.pathname !== '/' && !l.pathname.startsWith('/yourrepository/')) {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            '/yourrepository/' + '?#' + l.pathname.slice(1) +
+            l.search + l.hash
+          );
+        }
+      })();
+    </script>
   </body>
 </html>
