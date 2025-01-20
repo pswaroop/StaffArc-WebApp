@@ -12,9 +12,9 @@
     <script>
       (function() {
         var l = window.location;
-        if (l.pathname !== '/' && !l.pathname.startsWith('/yourrepository/')) {
+        if (l.pathname !== '/' && !l.pathname.startsWith('/StaffArc-WebApp/')) {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            '/yourrepository/' + '?#' + l.pathname.slice(1) +
+            '/StaffArc-WebApp/' + '?#' + l.pathname.slice(1) +
             l.search + l.hash
           );
         }
