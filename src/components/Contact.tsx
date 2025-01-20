@@ -185,173 +185,258 @@ const Contact = () => {
               </div>
             )}
 
-            <InputWrapper>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => handleFocus('name')}
-                  onBlur={() => handleBlur('name')}
-                  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
-                    ${errors.name ? 'border-red-500' : focusedField === 'name' ? 'border-blue-500' : 'border-gray-200'}
-                    focus:border-blue-500 bg-white`}
-                  placeholder=" "
-                  required
-                />
-                <label
-                  htmlFor="name"
-                  className={`absolute left-2 transition-all duration-300 transform 
-                    ${formData.name || focusedField === 'name' 
-                      ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
-                    ${errors.name ? 'text-red-500' : 'text-blue-600'}`}
-                >
-                  <div className="flex items-center gap-2 bg-white px-2">
-                    <User className="h-4 w-4" />
-                    <span>Full Name *</span>
-                  </div>
-                </label>
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-                )}
-              </div>
-            </InputWrapper>
+<div className="relative">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <InputWrapper>
-                <div className="relative">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onFocus={() => handleFocus('email')}
-                    onBlur={() => handleBlur('email')}
-                    className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
-                      ${errors.email ? 'border-red-500' : focusedField === 'email' ? 'border-blue-500' : 'border-gray-200'}
-                      focus:border-blue-500 bg-white`}
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    htmlFor="email"
-                    className={`absolute left-2 transition-all duration-300 transform 
-                      ${formData.email || focusedField === 'email'
-                        ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
-                      ${errors.email ? 'text-red-500' : 'text-blue-600'}`}
-                  >
-                    <div className="flex items-center gap-2 bg-white px-2">
-                      <Mail className="h-4 w-4" />
-                      <span>Email Address *</span>
-                    </div>
-                  </label>
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                  )}
-                </div>
-              </InputWrapper>
+<input
 
-              <InputWrapper>
-                <div className="relative">
-                  <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    onFocus={() => handleFocus('phone')}
-                    onBlur={() => handleBlur('phone')}
-                    className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
-                      ${errors.phone ? 'border-red-500' : focusedField === 'phone' ? 'border-blue-500' : 'border-gray-200'}
-                      focus:border-blue-500 bg-white`}
-                    placeholder=" "
-                  />
-                  <label
-                    htmlFor="phone"
-                    className={`absolute left-2 transition-all duration-300 transform 
-                      ${formData.phone || focusedField === 'phone'
-                        ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
-                      ${errors.phone ? 'text-red-500' : 'text-blue-600'}`}
-                  >
-                    <div className="flex items-center gap-2 bg-white px-2">
-                      <Phone className="h-4 w-4" />
-                      <span>Phone Number</span>
-                    </div>
-                  </label>
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
-                  )}
-                </div>
-              </InputWrapper>
-            </div>
+  type="text"
 
-            <InputWrapper>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  onFocus={() => handleFocus('company')}
-                  onBlur={() => handleBlur('company')}
-                  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
-                    ${focusedField === 'company' ? 'border-blue-500' : 'border-gray-200'}
-                    focus:border-blue-500 bg-white`}
-                  placeholder=" "
-                />
-                <label
-                  htmlFor="company"
-                  className={`absolute left-2 transition-all duration-300 transform 
-                    ${formData.company || focusedField === 'company'
-                      ? '-translate-y-7 text-sm text-blue-600'
-                      : 'translate-y-3 text-gray-500'}`}
-                >
-                  <div className="flex items-center gap-2 bg-white px-2">
-                    <Briefcase className="h-4 w-4" />
-                    <span>Company Name</span>
-                  </div>
-                </label>
-              </div>
-            </InputWrapper>
+  name="name"
 
-            <InputWrapper>
-              <div className="relative">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => handleFocus('message')}
-                  onBlur={() => handleBlur('message')}
-                  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
-                    ${errors.message ? 'border-red-500' : focusedField === 'message' ? 'border-blue-500' : 'border-gray-200'}
-                    focus:border-blue-500 bg-white resize-none`}
-                  placeholder=" "
-                  required
-                ></textarea>
-                <label
-                  htmlFor="message"
-                  className={`absolute left-2 transition-all duration-300 transform 
-                    ${formData.message || focusedField === 'message'
-                      ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
-                    ${errors.message ? 'text-red-500' : 'text-blue-600'}`}
-                >
-                  <div className="flex items-center gap-2 bg-white px-2">
-                    <MessageSquare className="h-4 w-4" />
-                    <span>Your Message *</span>
-                  </div>
-                </label>
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
-                )}
-              </div>
-            </InputWrapper>
+  id="name"
+
+  value={formData.name}
+
+  onChange={handleChange}
+
+  onFocus={() => handleFocus('name')}
+
+  onBlur={() => handleBlur('name')}
+
+  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
+
+    ${errors.name ? 'border-red-500' : focusedField === 'name' ? 'border-blue-500' : 'border-gray-200'}
+
+    focus:border-blue-500 bg-white`}
+
+  placeholder=" "
+
+  required
+
+/>
+
+<label
+
+  htmlFor="name"
+
+  className={`absolute left-2 transition-all duration-300 transform 
+
+    ${formData.name || focusedField === 'name' ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
+
+    ${errors.name ? 'text-red-500' : 'text-blue-600'}`}
+
+>
+
+  <div className="flex items-center gap-2 bg-white px-2">
+
+    <User className="h-4 w-4" />
+
+    <span>Full Name *</span>
+
+  </div>
+
+</label>
+
+{errors.name && (
+
+  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+
+)}
+
+</div>
+
+
+
+{/* Email Input */}
+
+<div className="relative">
+
+<input
+
+  type="email"
+
+  name="email"
+
+  id="email"
+
+  value={formData.email}
+
+  onChange={handleChange}
+
+  onFocus={() => handleFocus('email')}
+
+  onBlur={() => handleBlur('email')}
+
+  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
+
+    ${errors.email ? 'border-red-500' : focusedField === 'email' ? 'border-blue-500' : 'border-gray-200'}
+
+    focus:border-blue-500 bg-white`}
+
+  placeholder=" "
+
+  required
+
+/>
+
+<label
+
+  htmlFor="email"
+
+  className={`absolute left-2 transition-all duration-300 transform 
+
+    ${formData.email || focusedField === 'email' ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
+
+    ${errors.email ? 'text-red-500' : 'text-blue-600'}`}
+
+>
+
+  <div className="flex items-center gap-2 bg-white px-2">
+
+    <Mail className="h-4 w-4" />
+
+    <span>Email Address *</span>
+
+  </div>
+
+</label>
+
+{errors.email && (
+
+  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+
+)}
+
+</div>
+
+
+
+{/* Phone Input */}
+
+<div className="relative">
+
+<input
+
+  type="tel"
+
+  name="phone"
+
+  id="phone"
+
+  value={formData.phone}
+
+  onChange={handleChange}
+
+  onFocus={() => handleFocus('phone')}
+
+  onBlur={() => handleBlur('phone')}
+
+  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
+
+    ${errors.phone ? 'border-red-500' : focusedField === 'phone' ? 'border-blue-500' : 'border-gray-200'}
+
+    focus:border-blue-500 bg-white`}
+
+  placeholder=" "
+
+/>
+
+<label
+
+  htmlFor="phone"
+
+  className={`absolute left-2 transition-all duration-300 transform 
+
+    ${formData.phone || focusedField === 'phone' ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
+
+    ${errors.phone ? 'text-red-500' : 'text-blue-600'}`}
+
+>
+
+  <div className="flex items-center gap-2 bg-white px-2">
+
+    <Phone className="h-4 w-4" />
+
+    <span>Phone Number</span>
+
+  </div>
+
+</label>
+
+{errors.phone && (
+
+  <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
+
+)}
+
+</div>
+
+
+
+{/* Message Textarea */}
+
+<div className="relative">
+
+<textarea
+
+  name="message"
+
+  id="message"
+
+  rows={4}
+
+  value={formData.message}
+
+  onChange={handleChange}
+
+  onFocus={() => handleFocus('message')}
+
+  onBlur={() => handleBlur('message')}
+
+  className={`peer w-full px-4 py-3 border-2 rounded-lg outline-none transition-all duration-300
+
+    ${errors.message ? 'border-red-500' : focusedField === 'message' ? 'border-blue-500' : 'border-gray-200'}
+
+    focus:border-blue-500 bg-white resize-none`}
+
+  placeholder=" "
+
+  required
+
+></textarea>
+
+<label
+
+  htmlFor="message"
+
+  className={`absolute left-2 transition-all duration-300 transform 
+
+    ${formData.message || focusedField === 'message' ? '-translate-y-7 text-sm' : 'translate-y-3 text-gray-500'}
+
+    ${errors.message ? 'text-red-500' : 'text-blue-600'}`}
+
+>
+
+  <div className="flex items-center gap-2 bg-white px-2">
+
+    <MessageSquare className="h-4 w-4" />
+
+    <span>Your Message *</span>
+
+  </div>
+
+</label>
+
+{errors.message && (
+
+  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+
+)}
+
+</div>
+
             
+          
             <button
               type="submit"
               disabled={isSubmitting}
@@ -365,14 +450,14 @@ const Contact = () => {
                 <>
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.823 2.938 7.947l2.062-2.656z"></path>
                   </svg>
                   Sending...
                 </>
               ) : (
                 <>
+                  <Send className="h-5 w-5 mr-2" />
                   Send Message
-                  <Send className="ml-2 h-5 w-5" />
                 </>
               )}
             </button>
