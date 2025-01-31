@@ -13,6 +13,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "engines": {
+  "node": ">=18.18.0"
+},
+
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
